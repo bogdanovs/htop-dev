@@ -38,7 +38,7 @@ in the source distribution for its full text.
 #include "zfs/ZfsCompressedArcMeter.h"
 #include "SolarisProcess.h"
 #include "SolarisProcessList.h"
-
+#include "FlexMeter.h"
 
 const ScreenDefaults Platform_defaultScreens[] = {
    {
@@ -97,7 +97,9 @@ const SignalItem Platform_signals[] = {
 
 const unsigned int Platform_numberOfSignals = ARRAYSIZE(Platform_signals);
 
-const MeterClass* const Platform_meterTypes[] = {
+const ProcessField Platform_defaultFields[] = { PID, LWPID, USER, PRIORITY, NICE, M_VIRT, M_RESIDENT, STATE, PERCENT_CPU, PERCENT_MEM, TIME, COMM, 0 };
+
+const MeterClass* Platform_meterTypes[MAX_PLATFORM_METERS] = {
    &CPUMeter_class,
    &ClockMeter_class,
    &DateMeter_class,

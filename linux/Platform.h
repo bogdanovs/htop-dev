@@ -46,7 +46,8 @@ extern const SignalItem Platform_signals[];
 
 extern const unsigned int Platform_numberOfSignals;
 
-extern const MeterClass* const Platform_meterTypes[];
+extern const MeterClass* Platform_meterTypes[MAX_PLATFORM_METERS];
+
 
 bool Platform_init(void);
 void Platform_done(void);

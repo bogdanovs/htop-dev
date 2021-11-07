@@ -31,6 +31,7 @@ in the source distribution for its full text.
 #include "UptimeMeter.h"
 #include "dragonflybsd/DragonFlyBSDProcess.h"
 #include "dragonflybsd/DragonFlyBSDProcessList.h"
+#include "FlexMeter.h"
 
 const ScreenDefaults Platform_defaultScreens[] = {
    {
@@ -81,7 +82,7 @@ const SignalItem Platform_signals[] = {
 
 const unsigned int Platform_numberOfSignals = ARRAYSIZE(Platform_signals);
 
-const MeterClass* const Platform_meterTypes[] = {
+const MeterClass* Platform_meterTypes[MAX_PLATFORM_METERS] = {
    &CPUMeter_class,
    &ClockMeter_class,
    &DateMeter_class,

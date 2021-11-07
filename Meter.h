@@ -68,9 +68,9 @@ typedef struct MeterClass_ {
    const int defaultMode;
    const double total;
    const int* const attributes;
-   const char* const name;                 /* internal name of the meter, must not contain any space */
-   const char* const uiName;               /* display name in header setup menu */
-   const char* const caption;              /* prefix in the actual header */
+   const char* name;                 /* internal name of the meter, must not contain any space */
+   const char* uiName;               /* display name in header setup menu */
+   const char* caption;              /* prefix in the actual header */
    const char* const description;          /* optional meter description in header setup menu */
    const uint8_t maxItems;
    const bool isMultiColumn;               /* whether the meter draws multiple sub-columns (defaults to false) */
@@ -103,7 +103,7 @@ typedef struct GraphData_ {
 struct Meter_ {
    Object super;
    Meter_Draw draw;
-
+   const MeterClass * m_ptr;
    char* caption;
    int mode;
    unsigned int param;

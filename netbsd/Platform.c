@@ -54,7 +54,7 @@ in the source distribution for its full text.
 #include "XUtils.h"
 #include "netbsd/NetBSDProcess.h"
 #include "netbsd/NetBSDProcessList.h"
-
+#include "FlexMeter.h"
 /*
  * The older proplib APIs will be deprecated in NetBSD 10, but we still
  * want to support the 9.x stable branch.
@@ -149,7 +149,7 @@ const SignalItem Platform_signals[] = {
 
 const unsigned int Platform_numberOfSignals = ARRAYSIZE(Platform_signals);
 
-const MeterClass* const Platform_meterTypes[] = {
+const MeterClass* Platform_meterTypes[MAX_PLATFORM_METERS] = {
    &CPUMeter_class,
    &ClockMeter_class,
    &DateMeter_class,
